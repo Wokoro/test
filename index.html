@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      padding: 0.5em 1.2em;
+      margin-top: 0.5em;
+      margin-bottom: 0.5em;
+      margin-left: 0.6em;
+      margin-right: 0.6em;
+      position: relative;
+      border: 5px solid rgb(0, 54, 157);
+      color: rgb(0, 54, 157);
+      display: flex;
+      flex-direction: column;
+    }
+
+    table {
+      margin-top: 1em;
+    }
+
+    .result tr th:first-child,
+    .result tr td:first-child {
+      width: 1em;
+      text-align: left;
+      padding: 0 1em;
+    }
+
+    td {
+      text-align: center;
+      padding: 6px 0;
+    }
+
+    .result tr th:nth-child(n + 3),
+    .result tr td:nth-child(n + 3) {
+      width: 4em;
+    }
+
+    .result {
+      width: 100%;
+      margin-top: .55em;
+    }
+
+    .details {
+      justify-content: space-between;
+      display: flex;
+    }
+
+    .details tr td:first-child {
+      padding-left: 1em;
+    }
+
+    .summary td {
+      padding: 0.5em 0;
+      padding-left: 1em;
+    }
+
+    .behavr tr td:nth-child(n + 2),
+    .grades tr td:nth-child(n + 2) {
+      width: 5em;
+    }
+
+    .behavr,
+    .grades {
+      display: inline-table;
+    }
+
+    .behavr tr td:nth-child(1),
+    .grades tr td:nth-child(1) {
+      text-align: left;
+    }
+
+    .summary {
+      width: 100%;
+    }
+
+    .summary tr{
+      margin-top: 1.5em;
+      font-size: 12px;
+    }
+
+    .behavr {
+      width: 60%
+    }
+
+    .grades {
+      width: 35%
+    }
+
+    td,
+    th {
+      border: 1px solid rgb(0, 54, 157);
+    }
+
+    table {
+      border-collapse: collapse;
+    }
+
+    .result tr td:nth-child(2) {
+      text-align: left;
+      padding-left: 1em;
+    }
+
+    .input-holder {
+      display: flex;
+      flex-wrap: wrap;
+      flex-direction: column;
+      margin-top: 1.5em;
+      overflow: hidden;
+    }
+
+    th{
+      padding: 0.5em;
+    }
+
+    span {
+      min-width: max-content;
+      display: inline-block;
+      font-size: 12px;
+    }
+
+    .row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 1.2em;
+    }
+
+    .input {
+      display: flex;
+      padding: 0 0.2em;
+      align-items: flex-end;
+    }
+
+    .fail, #review-bdy tr td:last-child{
+      color: #b5134a;
+    }
+
+    input {
+      border: none;
+      background-color: transparent;
+      text-align: center;
+      font-size: 1.2em;
+      font-weight: 400;
+      font-family: lato, sans-serif;
+      letter-spacing: 0.09em;
+      color: rgb(0, 54, 157);
+    }
+
+    .sm-width {
+      width: 10em;
+    }
+
+    .md-width {
+      width: 14em;
+    }
+
+    .input-field {
+      border-bottom: 1px dashed rgb(0, 54, 157);;
+      flex-grow: 1;
+      font-size: 13px;
+    }
+
+    .summary td {
+      text-align: left !important;
+    }
+
+    .result,
+    .input-holder,
+    .summary,
+    .details {
+      font-size: 14px;
+      font-family: sans-serif
+    }
+
+    .large {
+      width: 85%;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  
+  <div style=";z-index: -1;text-align: center;opacity: 0.12;padding:8em;height: 100vh;position: absolute;margin: auto;top: 0;left: 0;right: 0;bottom: 0;">
+      <img src="https://res.cloudinary.com/die983xja/image/upload/v1624453280/eshool_mgt/bennyLogo_qcwqdx.png" alt="" srcset="" style="width: 100%;">
+  </div>
+  
+  <img src="https://res.cloudinary.com/die983xja/image/upload/v1624453280/eshool_mgt/bennyLogo_qcwqdx.png" alt="logo" style="position: absolute;width: 6.5em;">
+  <div style="text-align: center; margin-top: -22px">
+    <h2>SAMPLE SCHOOL</h2>
+    <p style="font-size: 0.9em;line-height: 0.1em;">AKENPAI-EPIE, YENEGOA, BAYELSA STATE</p>
+    <p style="font-size: 14px">MID-TERM REPORT SHEET</p>
+    <h5 style="line-height: 0.1em;font-size: 0.9em;margin-top: 0px;">SENIOR SECONDARY SCHOOL (SSS 1 - 3)</h5>
+  </div>
+
+  <div class="input-holder">
+    <div class="row">
+      <div class="input large">
+        <span> NAME:</span>
+        <input type="text" value="Abel Benson" class="input-field">
+      </div>
+      <div class="input">
+        <span class=""> SEX:</span>
+        <input type="text" value="male" class="input-field ">
+      </div>
+    </div>
+    <div class="row">
+      <div class="input">
+        <span class=""> CLASS:</span>
+        <input type="text" value="S.S.S. 1" class="input-field ">
+      </div>
+      <div class="input">
+        <span class=""> POSITION:</span>
+        <input type="text" value="1st" class="input-field" style="width: 7em;">
+      </div>
+      <div class="input">
+        <span class=""> OUT OF:</span>
+        <input type="text" value="1" class="input-field sm-width">
+      </div>
+      <div class="input">
+        <span class=""> SESSION:</span>
+        <input type="text" value="2020/2014" class="input-field sm-width">
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="input">
+        <span class=""> TERM:</span>
+        <input type="text" value="3rd" class="input-field" style="width: 12em">
+      </div>
+      <div class="input">
+        <span class=""> CLOSING DATE:</span>
+        <input type="text" value="Thu, 23rd Apr 2020" class="input-field md-width">
+      </div>
+      <div class="input">
+        <span class=""> OPENING DATE:</span>
+        <input type="text" value="Fri, 20th Mar 2020" class="input-field md-width">
+      </div>
+    </div>
+  </div>
+
+  <table class="result">
+    <thead>
+      <tr>
+        <th>S/N</th>
+        <th>Subject</th>
+        <th>C/W 2.5</th>
+        <th>ATTD. 2.5</th>
+        <th>ASSG. 2.5</th>
+        <th>NOTE 2.5</th>
+        <th>TEST 10%</th>
+        <th>TOTAL 20%</th>
+        <th>SUBJECT TEACHER</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Religious Studies</td>
+        <td>2.5</td>
+        <td>2.5</td>
+        <td>2.5</td>
+        <td>2.5</td>
+        <td>60</td>
+        <td>70</td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>21</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+      <tr>
+        <td>22</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><img src="" style="width: 100%; height: 10px; overflow: 'hidden'"/></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="summary" id="summary">
+    <tbody>
+      <tr>
+        <td>TOTAL SCORE: 70</td>
+        <td>AVERAGE: 70.00</td>
+      </tr>
+      <tr>
+        <td colspan="2">FORM MASTER'S/MISTRESS REMARK:<span style="display:inline-block; padding-left:0.3em">A very hardworking student, keep it up</span></td>
+      </tr>
+      <tr>
+        <td colspan="2">PRINCIPAL'S REMARK:<span style="display:inline-block; padding-left:0.3em">Good Result.</span></td>
+      </tr>
+      <tr>
+        <td>SIGNATURE & SCHOOL STAMP:<span style="display:inline-block; padding: 0.5em 0; padding-left:0.5em"></span></td>
+        <td>DATE:<span style="display:inline-block; padding-left:0.5em"; width: 2em;>23/04/2020</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="text-align: center;opacity: 0.6;padding:8em;position: absolute;margin: auto;left: 0;right: 0;bottom: 0;">
+    <img src="https://res.cloudinary.com/die983xja/image/upload/v1628355386/Benny/secondary_stamp_vbdwek.png" style="position: absolute;display: block;width: 150px;bottom: 15px;right:18px">
+  </div>
+
+  <script>
+    document.querySelectorAll('.tot_grade').forEach(el => {
+      if (+el.textContent < 40) {
+        el.classList.add('fail');
+        el.nextElementSibling.classList.add('fail');
+      }
+    })
+  </script>
+</body>
+
+</html>
